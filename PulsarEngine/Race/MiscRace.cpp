@@ -110,7 +110,7 @@ kmWrite32(0x807F13F0, 0x38600001);
 kmWrite32(0x8064DB2C, 0x60000000);
 
 //Mushroom Glitch
-kmWrite8(0x807BA077, 0x00000000);
+kmWrite8(0x807BA077, 0x00000000);         
 
 //WW Button
 kmWrite16(0x8064B982, 0x00000005);
@@ -123,6 +123,9 @@ kmWrite16(0x8064BC3E, 0x00000484);
 kmWrite16(0x8064BC4E, 0x000010D7);
 kmWrite16(0x8064BCB6, 0x00000484);
 kmWrite16(0x8064BCC2, 0x000010D7);
+
+//9250vr license creation
+kmWrite32(0x80548330, 0x38A02422)
 
 }//namespace Race
 }//namespace Pulsar
