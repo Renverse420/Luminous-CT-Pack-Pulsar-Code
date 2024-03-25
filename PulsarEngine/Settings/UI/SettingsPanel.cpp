@@ -12,7 +12,7 @@ u8 SettingsPanel::scrollerCount[SettingsPanel::maxPageCount] ={ 1, 1, 1 }; //men
 u8 SettingsPanel::buttonsPerPagePerRow[SettingsPanel::maxPageCount][8] = //first row is SettingsType, 2nd is rowIdx of radio
 {
     { 2, 2, 3, 2, 0, 0, 0, 0 }, //Menu 
-    { 2, 2, 2, 2, 3, 0, 0, 0 }, //Race
+    { 2, 2, 2, 2, 4, 0, 0, 0 }, //Race
     { 2, 4, 2, 0, 0, 0, 0, 0 }, //Host
 };
 
@@ -129,7 +129,8 @@ void SettingsPanel::OnInit() {
 UIControl* SettingsPanel::CreateExternalControl(u32 id) {
     const char* variant = "SAVE";
     if(id == 1) variant = "RIGHT";
-    else if(id == 2) variant = "LEFT";
+    if(id == 2) variant = "LEFT";
+    if(id == 3) variant = "OG";
     PushButton* button = new(PushButton);
     this->AddControl(this->controlCount++, *button, 0);
     button->Load(UI::buttonFolder, "Settings", variant, this->activePlayerBitfield, 0, false);

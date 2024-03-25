@@ -16,7 +16,7 @@ void Remove_Background_Blur_Glow(){
     Pulsar::System::CacheInvalidateAddress(U32_RBBG_HOOK_PT1);
     Pulsar::System::CacheInvalidateAddress(U32_RBBG_HOOK_PT2);
 }
-Pulsar::Settings::Hook RBBG_Hook(Remove_Background_Blur_Glow);
+static RaceLoadHook RBBG_Hook(Remove_Background_Blur_Glow);
 
 } // namespace Race
 } // namespace luminous

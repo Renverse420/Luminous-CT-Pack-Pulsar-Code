@@ -8,7 +8,7 @@
 //Simple speedometer that uses TPLs instead of text because the default font numbers have a very ugly black outline
 namespace Pulsar {
 namespace UI {
-class CtrlRaceSpeedo : public CtrlRaceBase {
+class CtrlRaceSpeedo2 : public CtrlRaceBase {
 public:
     void Init() override;
     void OnUpdate() override;
@@ -35,7 +35,6 @@ private:
     void Load(const char* variant, u8 id);
     void Animate(const SpeedArg* args = nullptr);
 };
-
 }//namespace UI
 }//namespace Pulsar
 

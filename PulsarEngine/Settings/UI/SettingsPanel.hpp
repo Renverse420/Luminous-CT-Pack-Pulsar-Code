@@ -15,7 +15,6 @@
 Inspired by VSRaceSettings but does not extend it as I wanted a custom amount of radioControls/scrollers depending on the page
 */
 extern u32 VSSettingsStaticAddr;
-
 namespace Pulsar {
 namespace UI {
 /*

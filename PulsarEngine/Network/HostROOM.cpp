@@ -16,22 +16,22 @@ static void ConvertROOMPacketToData(u16 param) {
     u8 raceCount;
     switch(param & 0xE) {
         case(0x2):
-            raceCount = 7;
+            raceCount = 2;
             break;
         case(0x4):
-            raceCount = 11;
+            raceCount = 1;
             break;
         case(0x6):
-            raceCount = 23;
+            raceCount = 0;
             break;
         case(0x8):
-            raceCount = 31;
+            raceCount = 5;
             break;
         case(0xA):
-            raceCount = 63;
+            raceCount = 7;
             break;
         case(0xC):
-            raceCount = 1;
+            raceCount = 11;
             break;
         default:
             raceCount = 3;
