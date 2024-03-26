@@ -1,4 +1,4 @@
-# Pulsar 3.0.1
+# Pulsar 3.0.1 Luminous
 
 Pulsar is a Mario Kart Wii Kamek-Based engine to create CT distributions. It comes with its own [software](../main/PulsarPackCreator/Executable) to aid in building custom distributions, and multiple quality of life features:
 
