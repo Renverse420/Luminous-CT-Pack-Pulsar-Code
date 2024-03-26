@@ -26,16 +26,16 @@ static void DecideCC(CustomSELECTHandler& handler) {
         const RKNet::RoomType roomType = controller->roomType;
         u8 ccClass = 2; //1 100, 2 150, 3 mirror
         if(roomType == RKNet::ROOMTYPE_VS_REGIONAL
-            || roomType == RKNet::ROOMTYPE_FROOM_HOST && ccSetting == HOSTSETTING_CC_NORMAL) {
+            || roomType == RKNet::ROOMTYPE_FROOM_HOST && ccSetting == HOSTSETTING_CC_150) {
             Random random;
             const u32 result = random.NextLimited(100); //25
-            u32 prob150 = Info::GetProb150(); //100
+            u32 prob100 = Info::GetProb100(); //100
             u32 prob150 = Info::GetProb150(); //00
             if(result < 100 - (prob100 + prob150)) ccClass = 2;
             else if(result < 100 - prob100) ccClass = 2;
         }
         else if(ccSetting == HOSTSETTING_CC_150) ccClass = 2;
-        else if(ccSetting == HOSTSETTING_CC_MIRROR) ccClass = 2;
+        else if(ccSetting == HOSTSETTING_CC_150) ccClass = 2;
         handler.toSendPacket.engineClass = ccClass;
     }
 
