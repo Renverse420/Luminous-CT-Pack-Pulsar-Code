@@ -6,13 +6,15 @@ Changes that are for my pack are
 
 - Remove Background Blur and Code Toggle (Thanks to GamingBram)
 - No DC Code Disabled
-- Removed WW Button (thanks to optllizer)
-- Vote Timer Always on (thanks to optllizer)
-- Pause before Start code (thanks to optllizer)
-- Look behind on respawn (thanks to optllizer)
-- Show nametags during countdown (thanks to optllizer)
-- Mushroom Glitch (thanks to optllizer)
-- End of Race Timer (thanks to optllizer)
+- Removed WW Button 
+- Vote Timer Always on 
+- Pause before Start code 
+- Look behind on respawn 
+- Show nametags during countdown 
+- Mushroom Glitch 
+- End of Race Timer 
+- Removed CC Toggle
+- Now 150cc by default
 
 
 
