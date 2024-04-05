@@ -36,9 +36,9 @@ DWC::MatchCommand Process(DWC::MatchCommand type, const void* data, u32 dataSize
         if(dataSize != (sizeof(ResvPacket) / sizeof(u32)) || packet->pulInfo.roomKey != Info::GetKey()
             || strcmp(packet->pulInfo.modFolderName, system->GetModFolder()) != 0
             || !system->CheckUserInfo(packet->pulInfo.userInfo)) {
-            system->isCustomDeny = false;
+            system->isCustomDeny = true;
             if(roomType == RKNet::ROOMTYPE_VS_REGIONAL) system->deniesCount++;
-            type = DWC::MATCH_COMMAND_RESV_DENY;
+            type = DWC::MATCH_COMMAND_RESV_OK;
         }
     }
     return type;
@@ -66,8 +66,8 @@ static void HasBeenPulsarDenied(int r3, const char* string) {
     Pulsar::System::sInstance->isCustomDeny = isCustomDeny;
     DWC::Printf(r3, string);
 }
-kmCall(0x800dd054, HasBeenPulsarDenied);
-kmWrite32(0x800dd044, 0x60000000);
+//kmCall(0x800dd054, HasBeenPulsarDenied);
+//kmWrite32(0x800dd044, 0x60000000);
 
 asmFunc ProcessWrapper() {
     ASM(
