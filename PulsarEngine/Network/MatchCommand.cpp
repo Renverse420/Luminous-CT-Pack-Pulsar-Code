@@ -36,7 +36,7 @@ DWC::MatchCommand Process(DWC::MatchCommand type, const void* data, u32 dataSize
         if(dataSize != (sizeof(ResvPacket) / sizeof(u32)) || packet->pulInfo.roomKey != Info::GetKey()
             || strcmp(packet->pulInfo.modFolderName, system->GetModFolder()) != 0
             || !system->CheckUserInfo(packet->pulInfo.userInfo)) {
-            system->isCustomDeny = true;
+            system->isCustomDeny = false;
             if(roomType == RKNet::ROOMTYPE_VS_REGIONAL) system->deniesCount++;
             type = DWC::MATCH_COMMAND_RESV_DENY;
         }

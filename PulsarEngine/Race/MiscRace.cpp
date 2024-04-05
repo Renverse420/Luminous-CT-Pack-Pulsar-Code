@@ -18,6 +18,9 @@ static int MiiHeads(RaceData* racedata, u32 unused, u32 unused2, u8 id) {
     if(roomType == RKNet::ROOMTYPE_FROOM_HOST || roomType == RKNet::ROOMTYPE_FROOM_NONHOST) {
         isDisabled = System::sInstance->disableMiiHeads;
     }
+    if(roomType == RKNet::ROOMTYPE_FROOM_HOST || roomType == RKNet::ROOMTYPE_FROOM_NONHOST) {
+        isDisabled = System::sInstance->disableMiiHeads2;
+    }
     if(Settings::Mgr::GetSettingValue(Settings::SETTINGSTYPE_RACE, SETTINGRACE_RADIO_MII) == RACESETTING_MII_ENABLED && !isDisabled) {
         if(charId < MII_M) {
             if(id == 0) charId = MII_M;
@@ -43,7 +46,7 @@ kmWrite32(0x8085C914, 0x38000000); //times at the end of races in VS
 static void DisplayTimesInsteadOfNames(CtrlRaceResult& result, u8 id) {
     result.DisplayFinishTime(id);
 }
-kmCall(0x8085d460, DisplayTimesInsteadOfNames); //for WWs
+//kmCall(0x8085d460, DisplayTimesInsteadOfNames); //for WWs//
 
 //don't hide position tracker (MrBean35000vr)
 kmWrite32(0x807F4DB8, 0x38000001);
@@ -59,7 +62,7 @@ kmBranch(0x807ae8ac, DraggableBlueShells);
 //Coloured Minimap
 kmWrite32(0x807DFC24, 0x60000000);
 
-//No Team Invincibility
+/*No Team Invincibility
 kmWrite32(0x8056fd24, 0x38000000); //KartCollision::CheckKartCollision()
 kmWrite32(0x80572618, 0x38000000); //KartCollision::CheckItemCollision()
 kmWrite32(0x80573290, 0x38000000); //KartCollision::HandleFIBCollision()
@@ -68,7 +71,7 @@ kmWrite32(0x8068e314, 0x38000000); //PlayerEffects ctor
 kmWrite32(0x807a7f6c, 0x38c00000); //FIB are always red
 kmWrite32(0x807b0bd4, 0x38000000); //pass TC to teammate
 kmWrite32(0x807bd2bc, 0x38000000); //RaceGlobals
-kmWrite32(0x807f18c8, 0x38000000); //TC alert
+kmWrite32(0x807f18c8, 0x38000000); //TC alert*/
 
 
 //CtrlItemWindow

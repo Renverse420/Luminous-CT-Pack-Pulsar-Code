@@ -40,6 +40,7 @@ static void ConvertROOMPacketToData(u16 param) {
     system->racesPerGP = raceCount;
     system->hasHAW = (param & 0x1);
     system->disableMiiHeads = (param & 0b10000);
+    system->disableMiiHeads2 = (param & 0b10000);
 }
 
 //Adds the settings to the free bits of the packet, only called for the host, msgType1 has 14 free bits as the game only has 4 gamemodes
@@ -52,9 +53,11 @@ void SetAllToSendPackets(RKNet::ROOMHandler& roomHandler, u32 packetArg) {
         packetReg.packet.message |= hostParam << 2; //uses bit 2 of message
 
         const u8 gpParam = Settings::Mgr::GetSettingValue(Settings::SETTINGSTYPE_HOST, SETTINGHOST_SCROLL_GP_RACES);
-        const u8 disableMiiHeads = Settings::Mgr::GetSettingValue(Settings::SETTINGSTYPE_HOST, SETTINGHOST_ALLOW_MIIHEADS);
+        const u8 disableMiiHeads(Settings::Mgr::GetSettingValue(Settings::SETTINGSTYPE_HOST, SETTINGHOST_ALLOW_MIIHEADS) == HOSTSETTING_ALLOW_MIIHEADS_ENABLED);
+        const u8 disableMiiHeads2(Settings::Mgr::GetSettingValue(Settings::SETTINGSTYPE_HOST, SETTINGHOST_ALLOW_MIIHEADS) == HOSTSETTING_ALLOW_MIIHEADS_DISABLED);
         packetReg.packet.message |= gpParam << 3; //uses bits 3-5
         packetReg.packet.message |= disableMiiHeads << 6; //uses bit 6
+        packetReg.packet.message |= disableMiiHeads2 << 6; //uses bit 6
         ConvertROOMPacketToData(packetReg.packet.message >> 2); //5 right now (2-6) + 3 reserved (7-9)
         packetReg.packet.message |= (System::sInstance->SetPackROOMMsg() << 0xA & 0b1111110000000000); //6 bits for packs (10-15)
 

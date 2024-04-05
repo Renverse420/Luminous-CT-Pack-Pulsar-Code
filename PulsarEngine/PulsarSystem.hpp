@@ -145,6 +145,7 @@ public:
     //Network
     bool hasHAW;
     bool disableMiiHeads;
+    bool disableMiiHeads2;
     bool isCustomDeny;
     u8 deniesCount;
     u8 curBlockingArrayIdx;
